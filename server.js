@@ -16,6 +16,7 @@ app.use('/blogs', blogRoutes);
 
 swaggerDocs(app);
 
+console.log("🔍 Trying to connect to MongoDB:", process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
