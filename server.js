@@ -1,24 +1,25 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const swaggerDocs = require('./swagger.js');
 
 const doctorRoutes = require('./routes/doctorRoutes.js');
 const productRoutes = require('./routes/shopProductsRoutes.js');
 const blogRoutes = require('./routes/blogRoutes.js');
-const authRoutes = require('./routes/authRoutes.js')
+const authRoutes = require('./routes/authRoutes.js');
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use('/doctors', doctorRoutes);
 app.use('/products', productRoutes);
 app.use('/blogs', blogRoutes);
-app.use('/auth',authRoutes)
+app.use('/auth', authRoutes);
 
 swaggerDocs(app);
 
-// console.log(" Trying to connect to MongoDB:", process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.log(err));
