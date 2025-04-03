@@ -11,7 +11,7 @@ const options = {
     },
     servers: [
       {
-        url: 'https://spec-repo-1.onrender.com', 
+        url: 'https://spec-repo-origin.onrender.com', 
       },
     ],
   },
