@@ -14,6 +14,19 @@ const options = {
         url: 'https://spec-repo-origin.onrender.com', 
       },
     ],
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
   apis: ['./docs/*.yaml'], 
 };
@@ -25,3 +38,4 @@ const swaggerDocs = (app) => {
 };
 
 module.exports = swaggerDocs;
+
